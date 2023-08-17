@@ -126,3 +126,11 @@ input:not([type="radio"]){
 .navigationbar ul li:hover{
     background-color: rgb(194, 187, 187);
 }
+
+.navigationbar ul li a{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+}
