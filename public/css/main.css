@@ -56,3 +56,27 @@ form, .formData{
     background-color: white;
     border-radius: 10px;
 }
+
+table,td, th{
+    border: 2px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    margin: 20px auto;
+    color: black;
+}
+
+td,th {
+    border: 2px solid rgb(0, 0, 0);
+    padding: 6px;    
+}
+
+th{
+    font-weight: bold;
+}
+
+section{
+    font-size: 18px;
+}
+
+input{
+    padding-left: 30px;
+}
