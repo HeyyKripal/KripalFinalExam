@@ -28,3 +28,32 @@ myApp.set('view engine', 'ejs');
 myApp.get('/', function (req, res) {
     res.render('index'); 
 });
+
+const Order = mongoose.model('Order', {
+    name: String,
+    studentId: String,
+    webCharge: Number,
+    serverlessCharge: Number,
+    pencilCharge: Number,
+    subTotal: Number,
+    taxAmount: Number,
+    totalAmount: Number
+});
+
+var studentIdRegex = /^\d{7}$/;
+
+function checkRegex(userInput, regex) {
+    if (regex.test(userInput)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function customstudentIdNumberValidation(value) {
+    if (!checkRegex(value, studentIdRegex)) {
+        throw new Error('Student ID number should be of 7 digits');
+    }
+    return true;
+}
