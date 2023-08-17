@@ -57,3 +57,64 @@ function customstudentIdNumberValidation(value) {
     }
     return true;
 }
+
+myApp.post('/', [
+    check('name', 'You must enter your Name').not().isEmpty(),
+    check('studentId', 'You must enter your Student ID').not().isEmpty(),
+    check('studentId').custom(customstudentIdNumberValidation),
+], function (req, res) {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.render('index', {
+            errors: errors.array()
+        });
+    }
+    else {
+
+        web = 0;
+        serverless = 0;
+        pencil = 0;
+        
+        var name = req.body.name;
+        var studentId = req.body.studentId;
+        var web = req.body.web;
+        var serverless = req.body.serverless;
+        var pencil = req.body.pencil;
+
+        var webCharge = 0;
+        var serverlessCharge = 0;
+        var pencilCharge = 0;
+        var subTotal = 0;
+        var totalAmount = 0;
+        var taxAmount = 0;
+        var tax = 0;
+
+        webCharge = 72.99 * web;
+        serverlessCharge = 61.99 * serverless;
+        pencilCharge = 6.99 * pencil;
+        subTotal = webCharge + serverlessCharge + pencilCharge;
+
+        tax = 5;
+        taxAmount = ((subTotal * 5) / 100);
+        totalAmount = ((subTotal * 5) / 100) + subTotal;
+
+        var pageData = {
+            name: name,
+            studentId: studentId,
+            webCharge: webCharge,
+            serverlessCharge: serverlessCharge,
+            pencilCharge: pencilCharge,
+            subTotal: subTotal,
+            taxAmount: taxAmount,
+            totalAmount: totalAmount
+        }
+
+        var myOrder = new Order(pageData);
+        myOrder.save().then( function(){
+            console.log('New order created');
+        });
+        
+        res.render('index', pageData);
+    }
+});
