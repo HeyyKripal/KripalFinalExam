@@ -39,6 +39,24 @@
                      <th>Total Amount</th>           
                  </tr>
             </thead>
+            <tbody>
+                <%
+                    for(var order of orders){
+                        %>
+                            <tr>
+                                <td><%= order.name %></td>
+                                <td><%= order.studentId %></td> 
+                                <td><%= order.webCharge %></td>
+                                <td><%= order.serverlessCharge %></td>
+                                <td><%= order.pencilCharge %></td>
+                                <td>$<%= order.subTotal.toFixed(2) %></td>
+                                <td>$<%= order.taxAmount.toFixed(2) %></td>
+                                <td>$<%= order.totalAmount.toFixed(2) %></td>
+                           </tr>
+                        <%
+                    }
+                %>
+           </tbody>
             
         </table>
     </section>
