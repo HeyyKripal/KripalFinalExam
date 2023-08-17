@@ -118,3 +118,13 @@ myApp.post('/', [
         res.render('index', pageData);
     }
 });
+
+myApp.get('/allorders', function(req, res){
+    Order.find({}).exec(function(err, orders){
+        res.render('allorders', {orders:orders});
+    });
+});
+
+myApp.listen(3000);
+
+console.log('Website is at port 3000');
