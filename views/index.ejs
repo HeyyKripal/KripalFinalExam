@@ -51,6 +51,71 @@
     </div>
   </form>
 
+  
+  <h1 id="title">INVOICE</h1>
+  <div class="formData">
+    <% if(typeof(errors) !='undefined' )
+    { for(var error of errors)
+      { %>
+      <p class="error">
+        <%=error.msg %>
+      </p>
+      <% } } %>
+
+        <% if(typeof(totalAmount) !='undefined' ){ %>
+          <p id="formResult"></p>
+          <h4>!!Thank you for your order!!</h4>
+          <p>Here are your order details:</p>
+          <table>
+            <tr>
+              <th>NAME : <br><br></th>
+              <td>
+                <%= name %> 
+              </td>
+            </tr>
+            <tr>
+                <th>Student ID :<br><br> </th>
+                <td>
+                  <%= studentId %>  
+                </td>
+              </tr>
+            <tr>
+              <th>Web Components Books($72.99) :<br><br> </th>
+              <td>
+                <%= webCharge.toFixed(2) %>
+              </td>
+            </tr>
+            <tr>
+              <th>Serverless Books($61.99) :<br><br> </th>
+              <td>
+                <%= serverlessCharge.toFixed(2) %>
+              </td>
+            </tr>
+            <tr>
+              <th>Retractable Pencils($6.99) :<br><br> </th>
+              <td>
+                <%= pencilCharge.toFixed(2) %>
+              </td>
+            </tr>
+            <tr>
+              <th>Sub Total :<br><br></th>
+              <td>$<%= subTotal.toFixed(2) %>
+              </td>
+            </tr>
+            <tr>
+              <th>Tax :<br><br> </th>
+              <td>$<%= taxAmount.toFixed(2) %>
+              </td>
+            </tr>
+            <tr>
+              <th>Total : <br><br></th>
+              <td>$<%= totalAmount.toFixed(2) %>
+              </td>
+            </tr>
+          </table>
+          <% } %>
+  </div>
+
 </body>
 
 <footer>
