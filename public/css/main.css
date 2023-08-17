@@ -117,3 +117,12 @@ input:not([type="radio"]){
     text-align: center;
     margin: auto;
 }
+
+.navigationbar ul li{
+    display: inline-block;
+    width: 180px;
+}
+
+.navigationbar ul li:hover{
+    background-color: rgb(194, 187, 187);
+}
