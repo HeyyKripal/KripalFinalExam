@@ -80,3 +80,11 @@ section{
 input{
     padding-left: 30px;
 }
+
+footer{
+    background: #2c2c2c;
+    padding: 20px;
+    color: antiquewhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
