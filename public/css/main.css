@@ -88,3 +88,17 @@ footer{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
 }
+
+input:not([type="radio"]), select{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px 10px;
+    right: 0px;
+    font-size: large;
+}
+
+input:not([type="radio"]){
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: large;
+}
